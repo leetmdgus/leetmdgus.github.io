@@ -1,0 +1,102 @@
+<!doctype html>
+<head>
+    <meta charset = "UTF-8">
+    <title>게시판</title>
+    <style>
+    body {
+        margin:50px;
+        padding:0px;
+        background-color:white;
+    }
+    .top{
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        border-top: 1px solid #000000;
+        border-collapse: collapse;
+    }
+    th, td {
+        border-bottom: 1px solid #000000;
+        padding: 10px;
+        text-align: center;
+    }
+    th{
+        background-color: rgb(55, 100, 35);
+     }
+    td {
+      background-color: #a4e7c6;
+    }
+    .write{
+        margin-top: 10px;
+        text-align: right;
+    }
+    </style>
+
+<script language="javascript">
+  function showPopup() { window.open("popup.html", "a", "width=400, height=200, left=100, top=50"); }
+  function back() {window.open("index.html","a");}
+</script>    
+
+</head>
+<body>
+    <div class=top><h1>게시판</h1>
+        </div>
+    <hr style="border: double 10px #aaffaa">
+    <table border ="1">
+        <thead>
+        <tr>
+            <th>번호</th>>
+            <th>제목</th>>
+            <th>작성자</th>>
+            <th>날짜</th>>
+            <th>조회수</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>5</td>
+            <td>오늘은 카페에 가야겠다</td>>
+            <td>책벌레</td>>
+            <td>2019.12.20</td>
+            <td>5</td> 
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>행복한 하루~</td>>
+            <td>초보 게시판</td>>
+            <td>2019.12.20</td>
+            <td>3</td> 
+        </tr>
+        <tr>
+            <td>3</td>>
+            <td>여긴 어디</td>>
+            <td>초코라떼</td>>
+            <td>2019.12.19</td>
+            <td>3</td>  
+        </tr>>
+
+        <tr>
+            <td>2</td>>
+            <td>오늘은 맑음</td>>
+            <td>프로바이오틱</td>>
+            <td>2019.12.18</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>1</td>>
+            <td>게시판 처음시작이다!</td>>
+            <td>녹차덕후</td>>
+            <td>2019.12.18</td>
+            <td>2</td>
+        </tr>
+        </tbody>>
+    </table>    
+
+<div class = write>
+    <input type ="button" value = "글쓰기" onclick="showPopup();"/>
+    <input type ="button" value = "돌아가기" onclick="back();"/>
+</div>
+<hr style="border: double 10px #aaffaa">    
+</body>
+</html>
