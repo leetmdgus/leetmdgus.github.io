@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
 <head>
-    <title>계산기</title>
-
+    <meta charset="UTF-8">
+    <title>녹차 계산기</title>
     <style>
 
         table {
             border-collapse: collapse;
         }
-        td {
+        td{
             padding: 5px 10px;
             text-align: center;
         }
@@ -17,39 +16,37 @@
             border: none;
         }
         input:focus {
-            outline: none;
+            outline:none;
         }
         .write{
         margin-top: 10px;
         text-align: left;
         }
     </style>
-    <script language="javascript">
-         function back() {window.open("index.html","a");}
-    </script>   
 </head>
 <body>
-    <h1>계산기</h1>
-    <table border="1">
+    <h1 onclick="alert('무슨 계산을 하려고!')">계산기</h1>
+
+    <table border ="1"> 
         <tr>
             <td colspan="4">
-                <input type="text" id="display">
-            </td>
+                <input type = "text" id="display">
+            </td>           
         </tr>
         <tr>
             <td colspan="4">
-                <input type="text" id="result">
+                <input type ="text" id="result">
             </td>
         </tr>
         <tr>
-            <td colspan="3">AC</td>
+            <td colspan="3" onclick="reset()">AC</td>
             <td onclick="add('/')">/</td>
         </tr>
         <tr>
             <td onclick="add(7)">7</td>
             <td onclick="add(8)">8</td>
             <td onclick="add(9)">9</td>
-            <td onclick="add('*')">*</td>
+            <td onclick="add(*)">*</td>
         </tr>
         <tr>
             <td onclick="add(4)">4</td>
@@ -68,16 +65,22 @@
             <td onclick="add('.')">.</td>
             <td onclick="calculate()">=</td>
         </tr>
-    </table>
+
+    </table> 
     <script>
-        function add(char) {
+        function add(char){
             var display = document.getElementById('display');
-            display.value = display.value + char;
+            display.value = display.value +char;
         }
-        function calculate() {
-            var display = document.getElementById('display');
+        function calculate(){
+            var display =document.getElementById('display');
             var result = eval(display.value);
             document.getElementById('result').value = result;
+        }
+        function reset(){
+            document.getElementById('display').value ="";
+            document.getElementById('result').value ="";
+
         }
     </script>
     <div class = write>
