@@ -1,0 +1,14 @@
+- title: 전체 목록
+  links:
+    - title: "모든 글 보기"
+      url: "problems"
+    - title: 분류별 보기
+      url: "tags"
+    - title: 기타
+      children:
+        - title: Archive
+          url: "archive"
+        - title: News
+          url: "news"
+        - title: About
+          url: "about"
