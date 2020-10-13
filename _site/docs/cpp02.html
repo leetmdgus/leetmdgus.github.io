@@ -64,22 +64,19 @@
 
 
 
-<title>Documentation</title>
-<meta property="og:title" content="Documentation" />
-<meta property="og:description" content="히힣
-" />
+<title>[C++] 기본 입출력을 배워 보자...</title>
+<meta property="og:title" content="[C++] 기본 입출력을 배워 보자..." />
+<meta property="og:description" content="[C++] 기본 입출력을 배워 보자..." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://leetmdgus.github.io" />
 <meta property="og:site_name" content="https://leetmdgus.github.io" />
 
-<meta itemprop="name" content="Documentation">
-<meta itemprop="description" content="히힣
-">
+<meta itemprop="name" content="[C++] 기본 입출력을 배워 보자...">
+<meta itemprop="description" content="[C++] 기본 입출력을 배워 보자...">
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Documentation"/>
-<meta name="twitter:description" content="히힣
-"/>
+<meta name="twitter:title" content="[C++] 기본 입출력을 배워 보자..."/>
+<meta name="twitter:description" content="[C++] 기본 입출력을 배워 보자..."/>
 
 <link rel="stylesheet" href="/assets/css/main.css">
 <link rel="stylesheet" href="/assets/css/palette.css">
@@ -218,8 +215,8 @@ if (!doNotTrack) {
         <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
           <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
             <!-- 페이지 수정 기능이 별 의미가 없으므로 주석처리 -->
-<!-- <a href="https://github.com/leetmdgus/leetmdgus.github.io/edit/master/leetmdgus.github.io/pages/docs.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a> -->
-<a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/leetmdgus/leetmdgus.github.io/tree/master/leetmdgus.github.io/pages/docs.md" target="_blank"><i class="fab fa-github fa-fw"></i> 의견 달기</a>
+<!-- <a href="https://github.com/leetmdgus/leetmdgus.github.io/edit/master/_docs/cpp02.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a> -->
+<a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/leetmdgus/leetmdgus.github.io/tree/master/_docs/cpp02.md" target="_blank"><i class="fab fa-github fa-fw"></i> 의견 달기</a>
 <a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 프로젝트 의견 달기</a>
 <!-- this will parse through the header fields and add a button to open
      an issue / ask a question on Github. The editable field should be in
@@ -241,32 +238,85 @@ if (!doNotTrack) {
           <!-- <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
             <ol class="breadcrumb spb-1">
               <li class="breadcrumb-item active" aria-current="page">
-                <a href="https://leetmdgus.github.io/problems/">Documentation</a>
+                <a href="https://leetmdgus.github.io/docs/cpp02">[C++] 기본 입출력을 배워 보자...</a>
               </li>
             </ol>
           </nav> -->
           <div class="td-content">
-            <h1 id="전체-목록">전체 목록</h1>
+            <h2 id="c-공부-2020-10-13">C++ 공부 (2020-10-13)</h2>
 
-<p>모든 글 보기</p>
+<h4 id="1-c에서의-pintf와-scanf">1. C++에서의 pintf와 scanf</h4>
 
-<div class="section-index">
-    <hr class="panel-line" />
-            
-    <font style="font-size: 15px;"><b><a href="/docs/cpp01">[C++] C++을 배워보쟈...</a></b></font><br />
-            
-    <font style="font-size: 15px;"><b><a href="/docs/cpp02">[C++] 기본 입출력을 배워 보자...</a></b></font><br />
-    
-    <!--         
-    <div class="entry">
-    <h5><a href="/docs/cpp01">[C++] C++을 배워보쟈...</a></h5>
-    <p>[C++] C++을 배워보쟈...</p>
-    </div>        
-    <div class="entry">
-    <h5><a href="/docs/cpp02">[C++] 기본 입출력을 배워 보자...</a></h5>
-    <p>[C++] 기본 입출력을 배워 보자...</p>
-    </div> -->
-</div>
+<ul>
+  <li>
+    <p>기본적인 실행방식은 C 프로그램과 동일하다.</p>
+  </li>
+  <li>
+    <p><strong>단, 확장자는 반드시 .c가 아닌 .cpp로 해야한다.</strong></p>
+  </li>
+</ul>
+
+<h3 id="문자열-hello-world의-출력">문자열 “Hello World의 출력”</h3>
+
+<p>모든 프로그램이 그렇듯 첫 시작을 “Hello World” 출력으로 시작하겠다.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello World!"</span><span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello "</span><span class="o">&lt;&lt;</span> <span class="s">"World!"</span><span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">::</span><span class="n">num</span><span class="o">&lt;&lt;</span><span class="err">''</span><span class="o">&lt;&lt;</span><span class="sc">'A'</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="err">''</span><span class="o">&lt;&lt;</span><span class="mf">3.14</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>실행 결과</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hello World!
+Hello World!
+20 A 3.14
+</code></pre></div></div>
+
+<p>여기서 가장 큰 특징 몇 가지를 확인 할 수 있다.</p>
+
+<ul>
+  <li>헤더파일 선언문 #include <iostream></iostream></li>
+  <li>std::cout 과 «을 이용한 출력</li>
+  <li>std::endl을 이용한 개행(c언어에서의 \n)</li>
+</ul>
+
+<h4 id="헤더파일-선언문-include-iostream">헤더파일 선언문 <code class="language-plaintext highlighter-rouge">#include &lt;iostream&gt;</code></h4>
+
+<ul>
+  <li>std, cout, enl과 같은 것을 사용하려면 위와 같은 헤더파일 선언문이 추가되어야 한다.</li>
+  <li>C++의 헤더파일 확장자는 C와 마찬가지로 .h이다.</li>
+  <li>그러나 C++에서는 생략하기로 약속되어 있다.</li>
+</ul>
+
+<blockquote>
+  <p>과거에는 입력 및 출력에 관한 일을 하기 위해 iostream에 헤더파일 확장자를 붙여 선언했는데, 새로운 C++ 표준의 도입으로 인해 C++의 표준 라이브러리에 변화가 있었다.</p>
+
+  <ul>
+    <li>과거의 표준 라이브러리와 새로운 표준 라이브러리의 구분</li>
+    <li>새로운 표준 라이브러리를 사용하는 형태로 소스코드를 쉽게 변경할 수 있도록</li>
+  </ul>
+
+  <p>위와 같은 이유로 헤더파일 확장자를 생략하기로 했다.</p>
+
+  <p>때문에 <code class="language-plaintext highlighter-rouge">&lt;iostream.h&gt;</code>는 과거의 표준 입출력 라이브러리 및 헤더를 의미하는 것으로 통용이 되고 C++ 컴파일러는 점차 <code class="language-plaintext highlighter-rouge">&lt;iostream.h&gt;</code>을 지원하지 않는 추세로 접어들었다.</p>
+</blockquote>
+
+<h4 id="stdcout-과-을-이용한-출력">std::cout 과 «을 이용한 출력</h4>
+
+<h4 id="stdendl을-이용한-개행c언어에서의-n">std::endl을 이용한 개행(c언어에서의 \n)</h4>
+
+<h3 id="scanf를-대신하는-데이터의-입력">scanf를 대신하는 데이터의 입력</h3>
+
+<p>&lt;참고 : 열혈 C++ 프로그래밍&gt;</p>
 
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -317,7 +367,8 @@ $.each(headers, function(i, header){
 })
 </script>
 
-
+<script>
+$('h1').first().append('<div><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#C++ ">C++</a></span><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#객체지향 ">객체지향</a></span><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#프로그래밍언어 ">프로그래밍언어</a></span></div>')</script>
 
 
             
