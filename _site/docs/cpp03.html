@@ -64,22 +64,19 @@
 
 
 
-<title>Documentation</title>
-<meta property="og:title" content="Documentation" />
-<meta property="og:description" content="히힣
-" />
+<title>[C++] 함수의 오버로딩을 배워보자...</title>
+<meta property="og:title" content="[C++] 함수의 오버로딩을 배워보자..." />
+<meta property="og:description" content="[C++] 함수의 오버로딩을 배워 보자..." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://leetmdgus.github.io" />
 <meta property="og:site_name" content="https://leetmdgus.github.io" />
 
-<meta itemprop="name" content="Documentation">
-<meta itemprop="description" content="히힣
-">
+<meta itemprop="name" content="[C++] 함수의 오버로딩을 배워보자...">
+<meta itemprop="description" content="[C++] 함수의 오버로딩을 배워 보자...">
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Documentation"/>
-<meta name="twitter:description" content="히힣
-"/>
+<meta name="twitter:title" content="[C++] 함수의 오버로딩을 배워보자..."/>
+<meta name="twitter:description" content="[C++] 함수의 오버로딩을 배워 보자..."/>
 
 <link rel="stylesheet" href="/assets/css/main.css">
 <link rel="stylesheet" href="/assets/css/palette.css">
@@ -218,8 +215,8 @@ if (!doNotTrack) {
         <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
           <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
             <!-- 페이지 수정 기능이 별 의미가 없으므로 주석처리 -->
-<!-- <a href="https://github.com/leetmdgus/leetmdgus.github.io/edit/master/leetmdgus.github.io/pages/docs.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a> -->
-<a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/leetmdgus/leetmdgus.github.io/tree/master/leetmdgus.github.io/pages/docs.md" target="_blank"><i class="fab fa-github fa-fw"></i> 의견 달기</a>
+<!-- <a href="https://github.com/leetmdgus/leetmdgus.github.io/edit/master/_docs/cpp03.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a> -->
+<a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/leetmdgus/leetmdgus.github.io/tree/master/_docs/cpp03.md" target="_blank"><i class="fab fa-github fa-fw"></i> 의견 달기</a>
 <a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 프로젝트 의견 달기</a>
 <!-- this will parse through the header fields and add a button to open
      an issue / ask a question on Github. The editable field should be in
@@ -241,38 +238,191 @@ if (!doNotTrack) {
           <!-- <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
             <ol class="breadcrumb spb-1">
               <li class="breadcrumb-item active" aria-current="page">
-                <a href="https://leetmdgus.github.io/problems/">Documentation</a>
+                <a href="https://leetmdgus.github.io/docs/cpp03">[C++] 함수의 오버로딩을 배워보자...</a>
               </li>
             </ol>
           </nav> -->
           <div class="td-content">
-            <h1 id="전체-목록">전체 목록</h1>
+            <h2 id="함수-오버로딩function-overloading">함수 오버로딩(Function Overloading)</h2>
 
-<p>모든 글 보기</p>
+<h4 id="함수-오버로딩의-이해">함수 오버로딩의 이해</h4>
 
-<div class="section-index">
-    <hr class="panel-line" />
-            
-    <font style="font-size: 15px;"><b><a href="/docs/cpp01">[C++] C++을 배워보쟈...</a></b></font><br />
-            
-    <font style="font-size: 15px;"><b><a href="/docs/cpp02">[C++] 기본 입출력을 배워 보자...</a></b></font><br />
-            
-    <font style="font-size: 15px;"><b><a href="/docs/cpp03">[C++] 함수의 오버로딩을 배워보자...</a></b></font><br />
-    
-    <!--         
-    <div class="entry">
-    <h5><a href="/docs/cpp01">[C++] C++을 배워보쟈...</a></h5>
-    <p>[C++] C++을 배워보쟈...</p>
-    </div>        
-    <div class="entry">
-    <h5><a href="/docs/cpp02">[C++] 기본 입출력을 배워 보자...</a></h5>
-    <p>[C++] 기본 입출력을 배워 보자...</p>
-    </div>        
-    <div class="entry">
-    <h5><a href="/docs/cpp03">[C++] 함수의 오버로딩을 배워보자...</a></h5>
-    <p>[C++] 함수의 오버로딩을 배워 보자...</p>
-    </div> -->
-</div>
+<ul>
+  <li>C언어에서는 아래와 같이 동일한 이름의 함수가 정의되는 것을 허용하지 않는다. 두</li>
+  <li>즉,  함수의 이름이 같기 때문에 컴파일 오류가 발생한다.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int MyFunc(int num){
+	num ++;
+	return num;
+}
+int MyFunc(int a, int b){
+	return a+b;
+}
+</code></pre></div></div>
+
+<ul>
+  <li>하지만 C++에서는 다른데 아래의 예시와 함께 설명하겠다.</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+	<span class="n">MyFunc</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="c1">//MyFunc(int num)호출  </span>
+	<span class="n">MyFunc</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">);</span> <span class="c1">//int MyFunc(int a, int b) 호출</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span><span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>C++에서는 함수 호출 시 전달되는 인자를 통해서 호출하고자 하는 함수의 구분이 하다. 즉,  매개변수의 선언 형태가 다르면, 동일한 이름의 함수 정의를 허용한다.</li>
+  <li>이러한 형태의 함수 정의를  ‘함수 오버로딩(Function Overloading)’이라 한다.</li>
+</ul>
+
+<blockquote>
+  <p>C언어에서 오버로딩을 허용하지 않는 이유는 무엇인가?</p>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>MyFunc(30,40);</li>
+  </ul>
+
+  <p>C++과 C는 다음과 같이 판단하고 함수를 찾는다.</p>
+
+  <p>C++에서는 “두 개의 int형 정수를 인자로 전달받을 수 있는 MyFunc이라는 이름의 함수를 찾아야겠군!”이라고 판단하여 함수를 찾지만, C에서는 “MyFunC 어디 있어? MyFunc!”라고 생각한다. 따라서 C언어에서는 함수의 오버로딩이 불가능하며, 이를 문법적으로 허용하지도 않는다.</p>
+</blockquote>
+
+<h4 id="함수-오버로딩의-예">함수 오버로딩의 예</h4>
+
+<p>함수의 오버로딩이 가능 하려면 매개 변수의 선언이 달라야 한다. 예를 들어 다음 두 함수는 오버로딩이 가능하다.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">MyFuc</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">){...}</span>
+<span class="kt">int</span> <span class="nf">MmyFunc</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){...}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>매개 변수의 자료형이 다르므로, <strong>전달인자의 자료형</strong>을 통해서 호출할 함수의 구분이 가능하기 때문이다.</li>
+</ul>
+
+<p>마찬가지로 다음 두 함수도 오버로딩이 가능하다.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">MyFunc</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){...}</span>
+<span class="kt">int</span> <span class="nf">MyFunc</span><span class="p">(</span><span class="kt">int</span> <span class="n">n1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n2</span><span class="p">){...}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>이 경우는 매개변수의 개수가 다르므로, 전달되는 <strong>인자의 개수</strong>를 통해서 호출할 함수의 구분이 가능하기 때문이다.</li>
+</ul>
+
+<p>정리하자면 함수의 오버로딩이 가능하려면 다음 조건을 만족해야 한다.</p>
+
+<blockquote>
+  <p>“매개변수의 자료형 또는 개수가 다르다.”</p>
+</blockquote>
+
+<p>반면, 다음은 대표적인, 잘못된 함수 오버로딩의 예이다.</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Void</span> <span class="nf">MyFunc</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){...}</span>
+<span class="kt">int</span> <span class="nf">MyFunc</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){...}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>위의 두 함수는 반환형이 다르다. 하지만 반환형은 함수 호출 시, 호출되는 함수를 구분하는 기준이 될 수 없다.</li>
+</ul>
+
+<h4 id="함수-오버로딩-예제">함수 오버로딩 예제</h4>
+
+<pre><code class="language-C++">#include &lt;iostream&gt;
+
+void MyFunc(void){
+	std::cout &lt;&lt; "MyFunc(void) called"&lt;&lt;std::endl;
+}
+
+void MyFunc(char c){
+	std::cout&lt;&lt;"MyFunc(char c) called" &lt;&lt;std::endl;
+}
+
+void MyFunc(int a, int b){
+	std::cout &lt;&lt; "MyFunc(int a, int b) called"&lt;&lt;std::endl;
+}
+
+int main(void){
+	MyFunc();
+	MyFunc('A');
+	MyFunc(12,13);
+	return 0;
+}
+</code></pre>
+
+<blockquote>
+  <p>실행 결과</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MyFunc(void) called
+MyFunc(char c) called
+MyFunc(int a, int b) called
+</code></pre></div></div>
+
+<h4 id="문제-함수-오버로딩">문제 함수 오버로딩</h4>
+
+<ul>
+  <li>다음 main 함수에서 필요로 하는 swap 함수를 오버로딩 해서 구현해보자.</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+	<span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">num1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">num2</span><span class="p">);</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+	<span class="kt">char</span> <span class="n">ch1</span> <span class="o">=</span> <span class="sc">'A'</span><span class="p">,</span> <span class="n">ch2</span> <span class="o">=</span> <span class="sc">'Z'</span><span class="p">;</span>
+	<span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ch1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ch2</span><span class="p">);</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="n">ch1</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="n">ch2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+	<span class="kt">double</span> <span class="n">dbl1</span> <span class="o">=</span> <span class="mf">1.111</span><span class="p">,</span> <span class="n">dbl2</span> <span class="o">=</span> <span class="mf">5.555</span><span class="p">;</span>
+	<span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">dbl1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dbl2</span><span class="p">);</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">dbl1</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="n">dbl2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>실행의 예</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>30 20
+Z A
+5.555 1.111
+</code></pre></div></div>
+
+<blockquote>
+  <p>답</p>
+</blockquote>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+	<span class="n">c</span> <span class="o">=</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+	<span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
+	<span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">b</span><span class="p">){</span>
+	<span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+	<span class="n">c</span> <span class="o">=</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+	<span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
+	<span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+	
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">double</span><span class="o">*</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span><span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kt">double</span> <span class="n">c</span><span class="p">;</span>
+	<span class="n">c</span> <span class="o">=</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+	<span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
+	<span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이로써 우리는 오늘 함수 오버로딩에 대한 개념을 알아보았다.</p>
+
+<p>글 제작일 : 2020-10-14</p>
+
+<p>&lt;참고 : 열혈 C++ 프로그래밍&gt;</p>
 
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -323,7 +473,8 @@ $.each(headers, function(i, header){
 })
 </script>
 
-
+<script>
+$('h1').first().append('<div><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#C++ ">C++</a></span><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#객체지향 ">객체지향</a></span><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#프로그래밍언어 ">프로그래밍언어</a></span></div>')</script>
 
 
             
