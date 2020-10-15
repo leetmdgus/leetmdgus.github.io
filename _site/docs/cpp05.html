@@ -64,22 +64,19 @@
 
 
 
-<title>Tags Index</title>
-<meta property="og:title" content="Tags Index" />
-<meta property="og:description" content="히힣
-" />
+<title>[C++] 인라인 함수를 배워보자...</title>
+<meta property="og:title" content="[C++] 인라인 함수를 배워보자..." />
+<meta property="og:description" content="[C++] 인라인 함수를 배워 보자..." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://leetmdgus.github.io" />
 <meta property="og:site_name" content="https://leetmdgus.github.io" />
 
-<meta itemprop="name" content="Tags Index">
-<meta itemprop="description" content="히힣
-">
+<meta itemprop="name" content="[C++] 인라인 함수를 배워보자...">
+<meta itemprop="description" content="[C++] 인라인 함수를 배워 보자...">
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags Index"/>
-<meta name="twitter:description" content="히힣
-"/>
+<meta name="twitter:title" content="[C++] 인라인 함수를 배워보자..."/>
+<meta name="twitter:description" content="[C++] 인라인 함수를 배워 보자..."/>
 
 <link rel="stylesheet" href="/assets/css/main.css">
 <link rel="stylesheet" href="/assets/css/palette.css">
@@ -218,8 +215,8 @@ if (!doNotTrack) {
         <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
           <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
             <!-- 페이지 수정 기능이 별 의미가 없으므로 주석처리 -->
-<!-- <a href="https://github.com/leetmdgus/leetmdgus.github.io/edit/master/leetmdgus.github.io/pages/tags.html" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a> -->
-<a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/leetmdgus/leetmdgus.github.io/tree/master/leetmdgus.github.io/pages/tags.html" target="_blank"><i class="fab fa-github fa-fw"></i> 의견 달기</a>
+<!-- <a href="https://github.com/leetmdgus/leetmdgus.github.io/edit/master/_docs/cpp05.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a> -->
+<a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/leetmdgus/leetmdgus.github.io/tree/master/_docs/cpp05.md" target="_blank"><i class="fab fa-github fa-fw"></i> 의견 달기</a>
 <a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 프로젝트 의견 달기</a>
 <!-- this will parse through the header fields and add a button to open
      an issue / ask a question on Github. The editable field should be in
@@ -241,85 +238,248 @@ if (!doNotTrack) {
           <!-- <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
             <ol class="breadcrumb spb-1">
               <li class="breadcrumb-item active" aria-current="page">
-                <a href="https://leetmdgus.github.io/tags/">Tags Index</a>
+                <a href="https://leetmdgus.github.io/docs/cpp05">[C++] 인라인 함수를 배워보자...</a>
               </li>
             </ol>
           </nav> -->
           <div class="td-content">
-            <h1 id="tags-index">문제 분류별 보기</h1>
+            <h2 id="인라인inline-함수">인라인(inline) 함수</h2>
 
+<ul>
+  <li>인라인 함수를 의역해 보면, ‘프로그램 코드 안으로 들어가 버린 함수’라는 뜻이 된다.</li>
+</ul>
 
+<h4 id="매크로-함수">매크로 함수</h4>
 
-<h3 id="C++" class="linked-section">C++</h3>
-<div class="post-list" style="margin-bottom:40px">
+<ul>
+  <li>C언어에서는 #define 선행처리 지시문에 인수로 함수의 정의를 전달함으로써, 함수처럼 동작하는 매크로를 만들 있다.</li>
+  <li>다음 예제는 SUB(X, Y)와 PRT(X)라는 매크로 함수를 정의하고 사용하는 예제이다.</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#define SUB(X,Y) X-Y
+#define PRT(X) printf("계산 결과는 %d입니다.\n", X)
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">num_01</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">num_02</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>  
     
-<div class="tag-entry">
-    <a href="/docs/cpp01">[C++] C++을 배워보쟈...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp02">[C++] 기본 입출력을 배워 보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp03">[C++] 함수의 오버로딩을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp04">[C++] 매개변수의 디폴드 값을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp05">[C++] 인라인 함수를 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-</div><h3 id="객체지향" class="linked-section">객체지향</h3>
-<div class="post-list" style="margin-bottom:40px">
+    <span class="n">result</span> <span class="o">=</span> <span class="n">SUB</span><span class="p">(</span><span class="n">num_01</span><span class="p">,</span> <span class="n">num_02</span><span class="p">);</span>
+    <span class="n">PRT</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>  
+</code></pre></div></div>
+
+<blockquote>
+  <p>실행 결과</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>계산 결과는 8입니다.
+</code></pre></div></div>
+
+<ul>
+  <li>매크로 함수는 일반 함수와는 달리 단순 치환만을 해주므로, 일반 함수와 완전히 똑같은 방식으로 동작하지는 않는다.</li>
+  <li>다음은 일반 함수와 매크로 함수와의 차이를 보여주는 예제이다.</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;stdio.h&gt;
+#define SQR(X) X*X
+#define PRT(X) printf("계산 결과는 %d입니다.\n", X)  
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>  
     
-<div class="tag-entry">
-    <a href="/docs/cpp01">[C++] C++을 배워보쟈...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp02">[C++] 기본 입출력을 배워 보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp03">[C++] 함수의 오버로딩을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp04">[C++] 매개변수의 디폴드 값을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp05">[C++] 인라인 함수를 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-</div><h3 id="프로그래밍언어" class="linked-section">프로그래밍언어</h3>
-<div class="post-list" style="margin-bottom:40px">
-    
-<div class="tag-entry">
-    <a href="/docs/cpp01">[C++] C++을 배워보쟈...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp02">[C++] 기본 입출력을 배워 보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp03">[C++] 함수의 오버로딩을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp04">[C++] 매개변수의 디폴드 값을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp05">[C++] 인라인 함수를 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-15T14:46:04+00:00">October 15, 2020</time>
-    </div>
-</div>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">SQR</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    <span class="n">PRT</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">SQR</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">PRT</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">SQR</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">3</span><span class="p">);</span>
+    <span class="n">PRT</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>  
+</code></pre></div></div>
+
+<blockquote>
+  <p>실행 결과</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>계산 결과는 100입니다.
+계산 결과는 25입니다.
+계산 결과는 23입니다.
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>위의 예제에서 맨 마지막의 매크로 함수는 예상한 결과와는 전혀 다른 결괏값을 반환합니다.</p>
+
+    <p>선행처리기는 매크로 정의에서 모든 X를 X+3으로 대체합니다.</p>
+
+    <p>따라서 SQR(x+3)은 다음과 같이 대체되어 계산됩니다.</p>
+
+    <p>x+3<em>x+3 = 5+3</em>5+3 = 5+15+3 = 23</p>
+  </li>
+  <li>
+    <p>일반 함수는 인수를 프로그램이 실행 중일 때 전달받지만, 매크로 함수는 인수를 컴파일 이전에 미리 치환하기 때문입니다.</p>
+
+    <p>따라서 이와 같은 오류를 미리 방지하기 위해서는 다음 예제의 ①번 코드처럼 각 인수를 모두 괄호(())로 묶어줘야 합니다.</p>
+  </li>
+</ul>
+
+<h4 id="매크로-함수를-사용할-때의-주의">매크로 함수를 사용할 때의 주의</h4>
+
+<ul>
+  <li>
+    <p>매크로 함수의 전체를 괄호(())로 감싸야 합니다.</p>
+  </li>
+  <li>
+    <p>매크로 함수의 인수들도 각각 괄호로 감싸야 합니다.</p>
+  </li>
+  <li>
+    <p>매크로 함수를 호출할 때에는 증감 연산자(++, –)나 복합 대입 연산자 등은 사용하지 않는 것이 좋습니다.</p>
+  </li>
+</ul>
+
+<h4 id="매크로-함수의-장점">매크로 함수의 장점</h4>
+
+<ul>
+  <li>일반적인 함수에 비해서 실행속도의 이점이 있다.</li>
+</ul>
+
+<h4 id="매크로-함수의-단점">매크로 함수의 단점</h4>
+
+<ul>
+  <li>정의하기가 어렵다. 복잡한 함수를 매크로의 형태로 정의하는데 한계가 잇다.</li>
+</ul>
+
+<h4 id="매크로-함수-정의">매크로 함수 정의</h4>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#incldue &lt;iostream&gt;
+#define SQUARE(x) ((x)*(x))
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span> <span class="n">SQUARE</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>위의 코드는 전처리 과정을 거치면 다음과 같이 변경된다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#incldue &lt;iostream&gt;
+
+int main(void){
+	std::cout&lt;&lt;((5)*(5)) &lt;&lt;std::endl;
+	return 0;
+}
+</code></pre></div></div>
+
+<ul>
+  <li>위예제와 같이 함수의 몸체부분이 함수 호출 문장을 완전히 대체했을 때, ‘함수가 인라인화 되었다.’라고 표현한다.</li>
+  <li>이러한 매크로 함수의 장점은 유지하되, 단점은 제가하는 방법을 C++에서는 제공한다.</li>
+</ul>
+
+<h4 id="c-기반의-인라인-함수-정의">C++ 기반의 인라인 함수 정의</h4>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kr">inline</span> <span class="kt">int</span> <span class="nf">SQUARE</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">){</span>
+	<span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">SQUARE</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">SQUARE</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>실행결과</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>24
+144
+</code></pre></div></div>
+
+<ul>
+  <li>매크로를 이용한 함수의 인라인화는 전처리기에 의해 처리되지만, 키워드 inline을 통한 함수의 인라인화는 컴파일러에 의해 처리가 된다.</li>
+  <li>따라서 컴파일러는 함수의 인라인화가 오히려 성능에 해가 된다고 판단할 경우, 이 키워드를 무시해버리기도 한다.</li>
+  <li>또한 필요한 경우 일부 함수를 임의로 인라인 처리하기도 한다.</li>
+</ul>
+
+<h4 id="매크로-함수에는-있지만-인라인-함수에는-없는-장점">매크로 함수에는 있지만, 인라인 함수에는 없는 장점</h4>
+
+<ul>
+  <li>사실 위의 인라인 함수는 매크로 함수의 장점을 완전히 대체하지 못했다. 예를 들어 매크로 함수가 다음과 같이 정의되면,</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define SQUARE(x) ((x)*(x))
+</span></code></pre></div></div>
+
+<ul>
+  <li>이는 자료형에 의존적이지 않은 함수가 된다. 따라서 다음의 함수 호출 문장은</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>std::cout&lt;&lt;SQUARE(12);  
+std::cout&lt;&lt;SQUARE(3.15); 
+</code></pre></div></div>
+
+<ul>
+  <li>다음과 같이 변황니 이루어져서 <strong>어떠한 경우에도 데이터 손실</strong>이 발생하지 않는다.</li>
+</ul>
+
+<pre><code class="language-C++">std::cout&lt;&lt;SQUARE((12)*(12));    // 인트형 함수 호출
+std::cout&lt;&lt;SQUARE((3.15)*(3.15));  //더블형 함수 호출
+</code></pre>
+
+<ul>
+  <li>하지만, 다음과  같이 정의된 인라인 함수는</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">inline</span> <span class="kt">int</span> <span class="nf">SQUARE</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">){</span><span class="n">retusn</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>int형 기반으로 정의된 함수이기 때문에 다음의 함수 호출 문장에서 데이터 손실이 발생한다.</li>
+</ul>
+
+<pre><code class="language-C++">std::cout&lt;&lt;SQUARE(3.15); //0.15가 손실되어서 3*3의 결과인 9가 출력
+</code></pre>
+
+<ul>
+  <li>함수의 오버로딩을 통해서 이 문제를 해결할 수 있으나, 여러개의 함수를 추가로 정의하는 꼴이 되어, 한번만 정의하면 되는 매크로 함수의 장점과는 거리가 멀어지게 된다.</li>
+  <li>C++의 템플릿이라는 것을 이용하면 매크로 함수와 마찬가지로 자료형에 의존적이지 않은 함수가 완성된다.</li>
+</ul>
+
+<h4 id="템플릿-예시">템플릿 예시</h4>
+
+<p>오늘은 간단한 예만 확인하겠다.</p>
+
+<pre><code class="language-C++">#include &lt;iostream&gt;
+
+template &lt;typename T&gt;
+inline T SQUARE( T x ){
+	return x*x;
+}
+
+int main(void){
+	std::cout &lt;&lt; SQUARE(5,5)&lt;&lt;std::endl;
+	std::cout &lt;&lt; SQUARE(12)&lt;&lt;std::endl;
+	return 0;
+}
+</code></pre>
+
+<ul>
+  <li>위 코드를 실행해보면, 데이터의 손실이 발생하지 않았음을 알 수 있다.</li>
+</ul>
+
+<p>오늘은 인라인함수에 대해 배워보았다.</p>
+
+<p>오늘 내용은 잘 이해가 가지 않아 한 번 더 복습해야할 필요가 있을 것 같다.</p>
+
+<p>제작일 : 2020-10-15</p>
+
+<p>&lt;참고 : 열혈 C++ 프로그래밍 , TCP school.com&gt;</p>
+
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -369,7 +529,8 @@ $.each(headers, function(i, header){
 })
 </script>
 
-
+<script>
+$('h1').first().append('<div><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#C++ ">C++</a></span><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#객체지향 ">객체지향</a></span><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#프로그래밍언어 ">프로그래밍언어</a></span></div>')</script>
 
 
             
