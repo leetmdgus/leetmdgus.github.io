@@ -64,22 +64,19 @@
 
 
 
-<title>Documentation</title>
-<meta property="og:title" content="Documentation" />
-<meta property="og:description" content="히힣
-" />
+<title>[C++] 이름공간을 배워보자...</title>
+<meta property="og:title" content="[C++] 이름공간을 배워보자..." />
+<meta property="og:description" content="[C++] 이름공간을 배워 보자..." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://leetmdgus.github.io" />
 <meta property="og:site_name" content="https://leetmdgus.github.io" />
 
-<meta itemprop="name" content="Documentation">
-<meta itemprop="description" content="히힣
-">
+<meta itemprop="name" content="[C++] 이름공간을 배워보자...">
+<meta itemprop="description" content="[C++] 이름공간을 배워 보자...">
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Documentation"/>
-<meta name="twitter:description" content="히힣
-"/>
+<meta name="twitter:title" content="[C++] 이름공간을 배워보자..."/>
+<meta name="twitter:description" content="[C++] 이름공간을 배워 보자..."/>
 
 <link rel="stylesheet" href="/assets/css/main.css">
 <link rel="stylesheet" href="/assets/css/palette.css">
@@ -218,8 +215,8 @@ if (!doNotTrack) {
         <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
           <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
             <!-- 페이지 수정 기능이 별 의미가 없으므로 주석처리 -->
-<!-- <a href="https://github.com/leetmdgus/leetmdgus.github.io/edit/master/leetmdgus.github.io/pages/docs.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a> -->
-<a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/leetmdgus/leetmdgus.github.io/tree/master/leetmdgus.github.io/pages/docs.md" target="_blank"><i class="fab fa-github fa-fw"></i> 의견 달기</a>
+<!-- <a href="https://github.com/leetmdgus/leetmdgus.github.io/edit/master/_docs/cpp06.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a> -->
+<a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/leetmdgus/leetmdgus.github.io/tree/master/_docs/cpp06.md" target="_blank"><i class="fab fa-github fa-fw"></i> 의견 달기</a>
 <a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 프로젝트 의견 달기</a>
 <!-- this will parse through the header fields and add a button to open
      an issue / ask a question on Github. The editable field should be in
@@ -241,56 +238,310 @@ if (!doNotTrack) {
           <!-- <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
             <ol class="breadcrumb spb-1">
               <li class="breadcrumb-item active" aria-current="page">
-                <a href="https://leetmdgus.github.io/problems/">Documentation</a>
+                <a href="https://leetmdgus.github.io/docs/cpp06">[C++] 이름공간을 배워보자...</a>
               </li>
             </ol>
           </nav> -->
           <div class="td-content">
-            <h1 id="전체-목록">전체 목록</h1>
+            <h2 id="이름공간namespace에-대한-소개">이름공간(namespace)에 대한 소개</h2>
 
-<p>모든 글 보기</p>
+<h4 id="이름공간의-등장배경">이름공간의 등장배경</h4>
 
-<div class="section-index">
-    <hr class="panel-line" />
-            
-    <font style="font-size: 15px;"><b><a href="/docs/cpp01">[C++] C++을 배워보쟈...</a></b></font><br />
-            
-    <font style="font-size: 15px;"><b><a href="/docs/cpp02">[C++] 기본 입출력을 배워 보자...</a></b></font><br />
-            
-    <font style="font-size: 15px;"><b><a href="/docs/cpp03">[C++] 함수의 오버로딩을 배워보자...</a></b></font><br />
-            
-    <font style="font-size: 15px;"><b><a href="/docs/cpp04">[C++] 매개변수의 디폴드 값을 배워보자...</a></b></font><br />
-            
-    <font style="font-size: 15px;"><b><a href="/docs/cpp05">[C++] 인라인 함수를 배워보자...</a></b></font><br />
-            
-    <font style="font-size: 15px;"><b><a href="/docs/cpp06">[C++] 이름공간을 배워보자...</a></b></font><br />
-    
-    <!--         
-    <div class="entry">
-    <h5><a href="/docs/cpp01">[C++] C++을 배워보쟈...</a></h5>
-    <p>[C++] C++을 배워보쟈...</p>
-    </div>        
-    <div class="entry">
-    <h5><a href="/docs/cpp02">[C++] 기본 입출력을 배워 보자...</a></h5>
-    <p>[C++] 기본 입출력을 배워 보자...</p>
-    </div>        
-    <div class="entry">
-    <h5><a href="/docs/cpp03">[C++] 함수의 오버로딩을 배워보자...</a></h5>
-    <p>[C++] 함수의 오버로딩을 배워 보자...</p>
-    </div>        
-    <div class="entry">
-    <h5><a href="/docs/cpp04">[C++] 매개변수의 디폴드 값을 배워보자...</a></h5>
-    <p>[C++] 매개변수의 디폴트 값을 배워 보자...</p>
-    </div>        
-    <div class="entry">
-    <h5><a href="/docs/cpp05">[C++] 인라인 함수를 배워보자...</a></h5>
-    <p>[C++] 인라인 함수를 배워 보자...</p>
-    </div>        
-    <div class="entry">
-    <h5><a href="/docs/cpp06">[C++] 이름공간을 배워보자...</a></h5>
-    <p>[C++] 이름공간을 배워 보자...</p>
-    </div> -->
-</div>
+<ul>
+  <li>프로그램이 대형화되어 가면서 이름의 충돌문제가 등장하였다.</li>
+  <li>C++의 표준에서는 ‘이름공간(namespace)’이라는 문법을 정의해서 이러한 문제에 대한 근본적인 해결책을 제시하고 있다.</li>
+</ul>
+
+<h4 id="이름공간의-기본-원리">이름공간의 기본 원리</h4>
+
+<ul>
+  <li>한 집에 승현이라는 이름의 사람이 두 명 산다면, 상황에 따라 문제가 될 수 있다. 그냥 ‘승현아!’라고 부르면, 어떤 승현이를 부르는지 알 수 없기 때문이다. 그러나 서로 살고 있는 집이 다르다면 문제 될 것이 없다. ‘104동에 사는 승현’이와 ‘504호에 사는 승현’이로 구분되기 때문이다.</li>
+  <li>이것이 이름공간의 기본 원리이다. 아래는 앞서 이야기한 이름충돌의 문제점을 간단히 코드로 옮겨놓은 것이다.</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="kt">void</span> <span class="nf">SimpleFunc</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"GREEN이 정의한 함수"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">SimpleFunc</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Tmdgus가 정의한 함수"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+	<span class="n">SimpleFunc</span><span class="p">();</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>위의 예제는 이름과 파라미터가 동일하기 때문에 문제가 됨을 알 수 있다.</li>
+  <li>아래의 예시를 통해 실제 이름공간과 관련된 내용을 설명하겠다.</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="k">namespace</span> <span class="n">Green</span><span class="p">{</span>
+	<span class="kt">void</span> <span class="n">SimpleFunc</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+		<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Green이 정의한 함수"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">:</span><span class="p">;</span><span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="k">namespace</span> <span class="n">Tmdgus</span><span class="p">{</span>
+	<span class="kt">void</span> <span class="n">SimpleFunc</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+		<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Tmdgus이 정의한 함수"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">:</span><span class="p">;</span><span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+	<span class="n">Green</span><span class="o">::</span><span class="n">simpleFunc</span><span class="p">();</span>
+	<span class="n">Tmdgus</span><span class="o">::</span><span class="n">simpleFunc</span><span class="p">();</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>실행결과</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Green이 정의한 함수
+Tmdgus이 정의한 함수
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>이런식으로 이름공간을 만들고 이 안에 함수를 정의하거나 변수를 선언한다면, 이름충돌은 발생하지 않는다.</p>
+  </li>
+  <li>
+    <p>위 예제에서 사용된 <strong>연산자 ::을 가리켜 ‘범위지정 연산자(scope resolution operator)</strong>‘라 한다.</p>
+  </li>
+</ul>
+
+<h4 id="이름공간-기반의-함수-선언과-정의의-구분">이름공간 기반의 함수 선언과 정의의 구분</h4>
+
+<ul>
+  <li>보통 함수는 선언과 정의를 분리하는 것이 일반적이다.</li>
+  <li>‘함수의 선언’은 헤더파일에 지정하고, ‘함수의 정의’는 소스파일에 저장하는 것이 보통이다.</li>
+  <li>다음예제를 통해 이름공간 기반에서 함수의 선언과 정의를 구분하는 방법을 확인해보자.</li>
+</ul>
+
+<pre><code class="language-C++">#include &lt;iostream&gt;
+
+namespace Green{
+	void SimpleFunc(void);
+}
+
+namespace Tmdgus{
+	void SimpleFunc(void);
+}
+
+int main(void){
+	Green::SimpleFunc();
+	Tmdgus::SimpleFunc();
+	return 0;
+}
+
+void Green::SimpleFunc(void){
+	std:;cout&lt;&lt;"Green이 정의한 함수"&lt;&lt;std::endl;
+}
+
+void Tmdgus::SimpleFunc(void){
+	std:;cout&lt;&lt;"Tmdgus이 정의한 함수"&lt;&lt;std::endl;
+}
+</code></pre>
+
+<blockquote>
+  <p>실행결과</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Green이 정의한 함수
+Tmdgus이 정의한 함수
+</code></pre></div></div>
+
+<ul>
+  <li>참고로 <strong>동일한 이름공간에 정의된 함수를 호출할 때는 이름공간을 명시할 필요가 없다.</strong></li>
+</ul>
+
+<h4 id="이름공간의-중첩">이름공간의 중첩</h4>
+
+<ul>
+  <li>이름공간은 다른 이름공간 안에 삽입될 수 있다.</li>
+</ul>
+
+<pre><code class="language-C++">namespace Parent{
+	int num = 2;
+	
+	namespace SubOne{
+		int num = 3;
+	}
+	
+	namespace SubTwo{
+		int num = 4;
+	}
+}
+int main(void){
+    std::cout&lt;&lt;Parent::num&lt;&lt;std::endl;
+    std::cout&lt;&lt;Parent::SubOne::num&lt;&lt;std::endl;
+    std::cout&lt;&lt;Parent::SubTwo::num&lt;&lt;std::endl;
+    return 0;
+}
+</code></pre>
+
+<blockquote>
+  <p>실행결과</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2
+3
+4
+</code></pre></div></div>
+
+<h4 id="stdcout-stdcin-stdendl">std::cout, std::cin, std::endl</h4>
+
+<ul>
+  <li>
+    <p>:: 연산자의 의미를 기반으로 다음 세가지가 뜻하는 바를 확인하겠다.</p>
+
+    <p>​	std::cout</p>
+
+    <p>​	std::cin</p>
+
+    <p>​	std::endl</p>
+  </li>
+  <li>
+    <p>순서대로</p>
+
+    <p>“이름공간 std에 선언된 cout”</p>
+
+    <p>“이름공간 std에 선언된 cin”</p>
+
+    <p>“이름공간 std에 선언된 endl”</p>
+  </li>
+  <li>
+    <p>헤더파일 <iostream>에 선언되어 있는 cout, cin 그리고 endl은 이름공간 std 안에 선언되어 있다.</iostream></p>
+  </li>
+  <li>
+    <p>이름충돌을 막기 위해서, C++표준에서 제공하는 다양한 요소들은 이름공간 std 안에 선언되어 있다.</p>
+  </li>
+</ul>
+
+<h4 id="using을-이용한-이름공간의-명시">using을 이용한 이름공간의 명시</h4>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="k">namespace</span> <span class="n">Hybrid</span><span class="p">{</span>
+	<span class="kt">void</span> <span class="n">HyFunc</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+		<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"So simple function!"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+		<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"In namespace Hybrid!"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+	<span class="k">using</span> <span class="n">Hybrid</span><span class="o">::</span><span class="n">HyFunc</span><span class="p">;</span>
+	<span class="n">HybFunc</span><span class="p">();</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>실행 결과</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>So simple function!
+In namespace Hybrid!
+</code></pre></div></div>
+
+<ul>
+  <li>다음 예제를 보면 Hybrid라는 이름 공간안에 선언된 함수를 범위지정없이 그냥 호출할 수 있음을 알 수 있다.</li>
+  <li>위 예제에서 보이듯이 다음의 선언은 ‘HybFunc를 이름공간 Hybrid에서 찾으라’는 일종의 선언이다.</li>
+</ul>
+
+<pre><code class="language-C++">using Hybrid::HybFunc;
+</code></pre>
+
+<ul>
+  <li>이때, HyFunc는 함수의 이름도 될 수 있고, 변수의 이름도 될 수 있다.</li>
+  <li>
+    <p>프로그램 전체영역에 효력을 미치게 하려면 전역변수와 마찬가지로 함수 밖에 선언을 해야 한다.</p>
+  </li>
+  <li>다음을 통해 <strong>이름공간 std에 선언된 모든 것에 대해 이름공간 지정의 생략</strong>을 명령할 수 있다.</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>예제를 통해 확인하겠다.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#incldue &lt;iostream&gt;
+using namespace std;
+
+int main(void){
+	int num = 20;
+	cout&lt;&lt;"Hello World!"&lt;&lt;endl;
+	cout&lt;&lt;"Hello"&lt;&lt;"World!"&lt;&lt;endl;
+}
+</code></pre></div></div>
+
+<ul>
+  <li>물론 using namespace선언은 매력적이나, 이름충돌이 발생할 확률이 상대적으로 높아진다. 따라서 무조건 편한 것을 선호하기 보다는 상황을 판단해서 적절히 혼용하는 자세가 필요하다.</li>
+</ul>
+
+<h4 id="이름공간의-별칭지정">이름공간의 별칭지정</h4>
+
+<ul>
+  <li>상황에 따라서는 다음과 같이 이름공간이 과도하게 사용될 수 있다.</li>
+</ul>
+
+<pre><code class="language-C++">namespace AAA{
+	namespace BBB{
+		namespace CCC{
+			int num1; 
+			int num2;
+		}
+	}
+}
+</code></pre>
+
+<ul>
+  <li>이러한 경우에는 AAA::BBB::CCC와 같은 이름에 별칭을 줄 수 있다.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>namespace ABC = AAA::BBB::CCC;
+</code></pre></div></div>
+
+<h4 id="범위지정-연산자scope-resilution-operator의-또-다른-기능">범위지정 연산자(Scope Resilution Operator)의 또 다른 기능</h4>
+
+<ul>
+  <li>지역변수의 이름이 전역변수의 이름과 같을 경우, 전역변수는 지역변수에 의해 가려진다는 특징이 있다.</li>
+  <li>다음 코드를 보자.</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">//전역변수</span>
+
+<span class="kt">int</span> <span class="nf">SimpleFunc</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+	<span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// 지역변수</span>
+	<span class="n">val</span><span class="o">+=</span><span class="mi">3</span><span class="p">;</span> <span class="c1">// 지역변수 val의 값 3증가</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>그렇다면 함수내에서 전역변수 val에 접근하려면 ‘범위지정 연산자’를 사용하면 된다.</li>
+</ul>
+
+<pre><code class="language-C++">int val = 100;
+
+int SimpleFunc(void){
+	int val = 20;
+	val +=3; //지역변수 val의 값 3 증가
+	::val +=7; //전역변수 val의 값 7증가
+}
+</code></pre>
+
+<p>이로써 네임스페이스에 대한 모든 내용이 끝났다.</p>
+
+<p>제작일 : 2020-10-16</p>
+
+<p>&lt;참고 : 열혈 C++ 프로그래밍&gt;</p>
 
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -341,7 +592,8 @@ $.each(headers, function(i, header){
 })
 </script>
 
-
+<script>
+$('h1').first().append('<div><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#C++ ">C++</a></span><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#객체지향 ">객체지향</a></span><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#프로그래밍언어 ">프로그래밍언어</a></span></div>')</script>
 
 
             
