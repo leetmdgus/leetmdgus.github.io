@@ -1,5 +1,5 @@
 ---
-title: "새로운 자료형 bool..."
+title: "[C++]새로운 자료형 bool..."
 description: "[C++] 새로운 자료형 bool..."
 tags: 
  - "C++"
