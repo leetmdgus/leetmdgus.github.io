@@ -64,22 +64,19 @@
 
 
 
-<title>Tags Index</title>
-<meta property="og:title" content="Tags Index" />
-<meta property="og:description" content="히힣
-" />
+<title>[C++] 참조자(Reference)의 이해...</title>
+<meta property="og:title" content="[C++] 참조자(Reference)의 이해..." />
+<meta property="og:description" content="[C++] 참조자(Reference)의 이해..." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://leetmdgus.github.io" />
 <meta property="og:site_name" content="https://leetmdgus.github.io" />
 
-<meta itemprop="name" content="Tags Index">
-<meta itemprop="description" content="히힣
-">
+<meta itemprop="name" content="[C++] 참조자(Reference)의 이해...">
+<meta itemprop="description" content="[C++] 참조자(Reference)의 이해...">
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags Index"/>
-<meta name="twitter:description" content="히힣
-"/>
+<meta name="twitter:title" content="[C++] 참조자(Reference)의 이해..."/>
+<meta name="twitter:description" content="[C++] 참조자(Reference)의 이해..."/>
 
 <link rel="stylesheet" href="/assets/css/main.css">
 <link rel="stylesheet" href="/assets/css/palette.css">
@@ -218,8 +215,8 @@ if (!doNotTrack) {
         <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
           <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
             <!-- 페이지 수정 기능이 별 의미가 없으므로 주석처리 -->
-<!-- <a href="https://github.com/leetmdgus/leetmdgus.github.io/edit/master/leetmdgus.github.io/pages/tags.html" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a> -->
-<a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/leetmdgus/leetmdgus.github.io/tree/master/leetmdgus.github.io/pages/tags.html" target="_blank"><i class="fab fa-github fa-fw"></i> 의견 달기</a>
+<!-- <a href="https://github.com/leetmdgus/leetmdgus.github.io/edit/master/_docs/cpp10.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a> -->
+<a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/leetmdgus/leetmdgus.github.io/tree/master/_docs/cpp10.md" target="_blank"><i class="fab fa-github fa-fw"></i> 의견 달기</a>
 <a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 프로젝트 의견 달기</a>
 <!-- this will parse through the header fields and add a button to open
      an issue / ask a question on Github. The editable field should be in
@@ -241,172 +238,93 @@ if (!doNotTrack) {
           <!-- <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
             <ol class="breadcrumb spb-1">
               <li class="breadcrumb-item active" aria-current="page">
-                <a href="https://leetmdgus.github.io/tags/">Tags Index</a>
+                <a href="https://leetmdgus.github.io/docs/cpp10">[C++] 참조자(Reference)의 이해...</a>
               </li>
             </ol>
           </nav> -->
           <div class="td-content">
-            <h1 id="tags-index">문제 분류별 보기</h1>
+            <h2 id="참조자reference의-이해">참조자(Reference)의 이해</h2>
+
+<ul>
+  <li>
+    <p>변수란?</p>
+
+    <ul>
+      <li>할당된 메모리 공간에 붙여진 이름</li>
+      <li>이름을 통해 해당 메모리 공간에 접근이 가능하다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>할당된 하나의 메모리 공간에 둘 이상의 이름 부여하기 -&gt; 참조자 선언하기</p>
+
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">2020</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">&amp;</span><span class="n">num2</span> <span class="o">=</span> <span class="n">num1</span><span class="p">;</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>위의 문장을 실행하게 되면 num1이라는 이름이 붙어있는 메모리 공간에 num2라는 이름이 하나 더 붙게 된다.</li>
+      <li>&amp;연산자는 이미 선언된 변수의 앞에 오면 주소 값의 반환을 명령하는 뜻이 되지만, 새로 선언되는 변수의 이름 앞에 등장하면, 이는 참조자의 선언을 뜻하게 된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">num1</span><span class="p">;</span> <span class="c1">// 변수 num1의 주소 값을 반환해서 포인터 ptr에 저장</span>
+<span class="kt">int</span> <span class="o">&amp;</span><span class="n">num2</span> <span class="o">=</span> <span class="n">num1</span><span class="p">;</span> <span class="c1">// 변수 num1에 대한 참조자 num2를 선언</span>
+</code></pre></div></div>
+
+<ul>
+  <li>참조자는 변수를 대상으로만 선언이 가능하다.</li>
+</ul>
+
+<h4 id="참조자의-수에는-제한이-없으며-참조자를-대상으로도-참조자를-선언할-수-있다">참조자의 수에는 제한이 없으며, 참조자를 대상으로도 참조자를 선언할 수 있다.</h4>
+
+<ul>
+  <li>다음과 같이 여러 개의 참조자를 선언하는 것이 가능하다.</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">2020</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">&amp;</span><span class="n">num2</span> <span class="o">=</span> <span class="n">num1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">&amp;</span><span class="n">num3</span> <span class="o">=</span> <span class="n">num1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">&amp;</span><span class="n">num4</span> <span class="o">=</span> <span class="n">num1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>참조자를 대상으로 참조자를 선언하는 것도 가능하다.</li>
+</ul>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">2020</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">&amp;</span><span class="n">num2</span> <span class="o">=</span> <span class="n">num1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">&amp;</span><span class="n">num3</span> <span class="o">=</span> <span class="n">num2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">&amp;</span><span class="n">num4</span> <span class="o">=</span> <span class="n">num3</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>하지만,  필요 이상으로 참조자를 선언하는 것은 바람직하지 않다.</li>
+</ul>
+
+<h4 id="참조자의-선언-가능-범위">참조자의 선언 가능 범위</h4>
+
+<ul>
+  <li>참조자는 변수에 대해서만 선언이 가능하다.</li>
+  <li>참조자는 선언됨과 동시에 누군가를 참조해야만 한다.</li>
+  <li>참조자를 선언하면서 NULL로 초기화하는 것도 불가능하다.</li>
+</ul>
+
+<blockquote>
+  <p>참조자는 무조건 선언과 동시에 변수를 참조하도록 해야 한다.</p>
+</blockquote>
+
+<ul>
+  <li>포인터 변수도 변수이기 때문에 참조자 선언이 가능하다.</li>
+</ul>
+
+<p>이렇게 참조자에 대해 알아보았다.</p>
+
+<p>제작일 : 2020-10-20</p>
+
+<p>&lt;참고 : 열혈 C++ 프로그래밍 &gt;</p>
 
 
-
-<h3 id="C++" class="linked-section">C++</h3>
-<div class="post-list" style="margin-bottom:40px">
-    
-<div class="tag-entry">
-    <a href="/docs/cpp01">[C++] C++을 배워보쟈...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp02">[C++] 기본 입출력을 배워 보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp03">[C++] 함수의 오버로딩을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp04">[C++] 매개변수의 디폴드 값을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp05">[C++] 인라인 함수를 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp06">[C++] 이름공간을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp07">[C++] OOP 단계별 프로젝트 1단계</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp08">[C++] Chapter 02의 시작에 앞서서...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp09">[C++]새로운 자료형 bool...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp10">[C++] 참조자(Reference)의 이해...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp11">[C++] 참조자(Reference)의 이해...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-</div><h3 id="Python" class="linked-section">Python</h3>
-<div class="post-list" style="margin-bottom:40px">
-    
-<div class="tag-entry">
-    <a href="/docs/python01">[Python] Python 1일차...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-</div><h3 id="객체지향" class="linked-section">객체지향</h3>
-<div class="post-list" style="margin-bottom:40px">
-    
-<div class="tag-entry">
-    <a href="/docs/cpp01">[C++] C++을 배워보쟈...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp02">[C++] 기본 입출력을 배워 보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp03">[C++] 함수의 오버로딩을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp04">[C++] 매개변수의 디폴드 값을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp05">[C++] 인라인 함수를 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp06">[C++] 이름공간을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp07">[C++] OOP 단계별 프로젝트 1단계</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp08">[C++] Chapter 02의 시작에 앞서서...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp09">[C++]새로운 자료형 bool...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp10">[C++] 참조자(Reference)의 이해...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp11">[C++] 참조자(Reference)의 이해...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/python01">[Python] Python 1일차...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-</div><h3 id="프로그래밍언어" class="linked-section">프로그래밍언어</h3>
-<div class="post-list" style="margin-bottom:40px">
-    
-<div class="tag-entry">
-    <a href="/docs/cpp01">[C++] C++을 배워보쟈...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp02">[C++] 기본 입출력을 배워 보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp03">[C++] 함수의 오버로딩을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp04">[C++] 매개변수의 디폴드 값을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp05">[C++] 인라인 함수를 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp06">[C++] 이름공간을 배워보자...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp07">[C++] OOP 단계별 프로젝트 1단계</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp08">[C++] Chapter 02의 시작에 앞서서...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp09">[C++]새로운 자료형 bool...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp10">[C++] 참조자(Reference)의 이해...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/cpp11">[C++] 참조자(Reference)의 이해...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-<div class="tag-entry">
-    <a href="/docs/python01">[Python] Python 1일차...</a>
-        <time style="font-style:italic; float:right" datetime="2020-10-20T12:44:29+00:00">October 20, 2020</time>
-    </div>
-</div>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -456,7 +374,8 @@ $.each(headers, function(i, header){
 })
 </script>
 
-
+<script>
+$('h1').first().append('<div><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#C++ ">C++</a></span><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#객체지향 ">객체지향</a></span><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#프로그래밍언어 ">프로그래밍언어</a></span></div>')</script>
 
 
             
