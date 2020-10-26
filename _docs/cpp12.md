@@ -139,7 +139,7 @@ cout<<*ptr<<endl; 		//출력결과는 20!
 
 > 문제 02-3 [구조체에 대한 new & delete 연산]
 
-+ 2차원 평면상에서의 좌표를 표현할 수 잇는 구조체를 다음과 같이 정의했다.
++ 2차원 평면상에서의 좌표를 표현할 수 있는 구조체를 다음과 같이 정의했다.
 
 ```c++
 typedef struct __Point{
@@ -159,14 +159,41 @@ typedef struct __Point{
 
 
 
-+ 문제 풀이
++ 문제 풀이 < 책참조>
 
+~~~c++
+#include <iostream>
+
+typedef struct __Point{
+	int xpos;
+	int ypos;
+}Point;
+
+Point & PntAdder(const Point &p1, const Point &p2){
+    Point * pptr= new Point;
+    pptr -> xpos = p1.xpos + p2.xpos;
+    return *pptr;
+
+}
+
+int main(){
+    Point * pptr1 = new Point;
+    pptr1 -> xpos = 5;
+    pptr1 -> ypos = 10;
+
+    Point * pptr2 = new Point;
+    pptr2 -> xpos = 10;
+    pptr2 -> ypos = 20;
+
+    Point & pref = PntAdder(*pptr1, *pptr2);
+    std::cout<<"x: "<<pref.xpos<<" y: "<<pref.ypos<<std::endl;
+    
+    return 0;
+}
 ~~~
-#include 
-~~~
 
 
 
-제작일 : 2020-10-24
+제작일 : 2020-10-26
 
 <참고 : 열혈 C++ 프로그래밍>
