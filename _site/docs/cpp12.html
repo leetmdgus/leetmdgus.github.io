@@ -390,7 +390,7 @@ if (!doNotTrack) {
 </blockquote>
 
 <ul>
-  <li>2차원 평면상에서의 좌표를 표현할 수 잇는 구조체를 다음과 같이 정의했다.</li>
+  <li>2차원 평면상에서의 좌표를 표현할 수 있는 구조체를 다음과 같이 정의했다.</li>
 </ul>
 
 <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">__Point</span><span class="p">{</span>
@@ -414,14 +414,41 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li>
-    <p>문제 풀이</p>
+    <p>문제 풀이 &lt; 책참조&gt;</p>
   </li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include 
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">__Point</span><span class="p">{</span>
+	<span class="kt">int</span> <span class="n">xpos</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">ypos</span><span class="p">;</span>
+<span class="p">}</span><span class="n">Point</span><span class="p">;</span>
+
+<span class="n">Point</span> <span class="o">&amp;</span> <span class="n">PntAdder</span><span class="p">(</span><span class="k">const</span> <span class="n">Point</span> <span class="o">&amp;</span><span class="n">p1</span><span class="p">,</span> <span class="k">const</span> <span class="n">Point</span> <span class="o">&amp;</span><span class="n">p2</span><span class="p">){</span>
+    <span class="n">Point</span> <span class="o">*</span> <span class="n">pptr</span><span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">;</span>
+    <span class="n">pptr</span> <span class="o">-&gt;</span> <span class="n">xpos</span> <span class="o">=</span> <span class="n">p1</span><span class="p">.</span><span class="n">xpos</span> <span class="o">+</span> <span class="n">p2</span><span class="p">.</span><span class="n">xpos</span><span class="p">;</span>
+    <span class="k">return</span> <span class="o">*</span><span class="n">pptr</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">Point</span> <span class="o">*</span> <span class="n">pptr1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">;</span>
+    <span class="n">pptr1</span> <span class="o">-&gt;</span> <span class="n">xpos</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+    <span class="n">pptr1</span> <span class="o">-&gt;</span> <span class="n">ypos</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+    <span class="n">Point</span> <span class="o">*</span> <span class="n">pptr2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="p">;</span>
+    <span class="n">pptr2</span> <span class="o">-&gt;</span> <span class="n">xpos</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">pptr2</span> <span class="o">-&gt;</span> <span class="n">ypos</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+    <span class="n">Point</span> <span class="o">&amp;</span> <span class="n">pref</span> <span class="o">=</span> <span class="n">PntAdder</span><span class="p">(</span><span class="o">*</span><span class="n">pptr1</span><span class="p">,</span> <span class="o">*</span><span class="n">pptr2</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"x: "</span><span class="o">&lt;&lt;</span><span class="n">pref</span><span class="p">.</span><span class="n">xpos</span><span class="o">&lt;&lt;</span><span class="s">" y: "</span><span class="o">&lt;&lt;</span><span class="n">pref</span><span class="p">.</span><span class="n">ypos</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
-<p>제작일 : 2020-10-24</p>
+<p>제작일 : 2020-10-26</p>
 
 <p>&lt;참고 : 열혈 C++ 프로그래밍&gt;</p>
 
