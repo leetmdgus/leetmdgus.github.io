@@ -64,22 +64,19 @@
 
 
 
-<title>승현이 코딩 공부 히히</title>
-<meta property="og:title" content="승현이 코딩 공부 히히" />
-<meta property="og:description" content="히힣
-" />
+<title>[C++] '행맨을 해보자...</title>
+<meta property="og:title" content="[C++] '행맨을 해보자..." />
+<meta property="og:description" content="[C++] '행맨을 해보자..." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://leetmdgus.github.io" />
 <meta property="og:site_name" content="https://leetmdgus.github.io" />
 
-<meta itemprop="name" content="승현이 코딩 공부 히히">
-<meta itemprop="description" content="히힣
-">
+<meta itemprop="name" content="[C++] '행맨을 해보자...">
+<meta itemprop="description" content="[C++] '행맨을 해보자...">
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="승현이 코딩 공부 히히"/>
-<meta name="twitter:description" content="히힣
-"/>
+<meta name="twitter:title" content="[C++] '행맨을 해보자..."/>
+<meta name="twitter:description" content="[C++] '행맨을 해보자..."/>
 
 <link rel="stylesheet" href="/assets/css/main.css">
 <link rel="stylesheet" href="/assets/css/palette.css">
@@ -218,8 +215,8 @@ if (!doNotTrack) {
         <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
           <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
             <!-- 페이지 수정 기능이 별 의미가 없으므로 주석처리 -->
-<!-- <a href="https://github.com/leetmdgus/leetmdgus.github.io/edit/master/pages/index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a> -->
-<a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/leetmdgus/leetmdgus.github.io/tree/master/pages/index.md" target="_blank"><i class="fab fa-github fa-fw"></i> 의견 달기</a>
+<!-- <a href="https://github.com/leetmdgus/leetmdgus.github.io/edit/master/_docs/project02.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a> -->
+<a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new?labels=question&title=Question:&body=Question on: https://github.com/leetmdgus/leetmdgus.github.io/tree/master/_docs/project02.md" target="_blank"><i class="fab fa-github fa-fw"></i> 의견 달기</a>
 <a href="https://github.com/leetmdgus/leetmdgus.github.io/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 프로젝트 의견 달기</a>
 <!-- this will parse through the header fields and add a button to open
      an issue / ask a question on Github. The editable field should be in
@@ -241,18 +238,242 @@ if (!doNotTrack) {
           <!-- <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
             <ol class="breadcrumb spb-1">
               <li class="breadcrumb-item active" aria-current="page">
-                <a href="https://leetmdgus.github.io/">승현이 코딩 공부 히히</a>
+                <a href="https://leetmdgus.github.io/docs/project02">[C++] '행맨을 해보자...</a>
               </li>
             </ol>
           </nav> -->
           <div class="td-content">
-            <h1 id="승현이의-녹차공장">승현이의 녹차공장</h1>
+            <h2 id="숫자야구">숫자야구</h2>
+
+<h2 id="hangman">HangMan</h2>
 
 <ul>
-  <li>프로그래밍 언어(C++, C, python)와 자료구조 및 이산수학 등을 공부하는 녹차공장입니다.</li>
-  <li>최종 수정일 : 2020-10-17</li>
+  <li>행맨이란?
+    <ul>
+      <li>단어를 맞추는 게임이다.</li>
+      <li>A ~ Z까지 한 알파벳을 말한다.</li>
+      <li>만약 지정된 단어에 포함되어 있지 않다면 차례대로 scaffold, head, body, left hand, right hand, left leg, right leg를 추가한다.</li>
+      <li>left leg가 생성될 때까지 단어를 맞추지 못하면 지는 게임이다.</li>
+    </ul>
+  </li>
+  <li>코드 구현</li>
 </ul>
 
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+#include &lt;windows.h&gt;
+#include &lt;cstdlib&gt;
+#include &lt;time.h&gt;
+</span>
+<span class="k">class</span> <span class="nc">HangMan</span><span class="p">{</span>
+<span class="nl">private:</span>
+    <span class="kt">bool</span> <span class="n">is_scaffold</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">is_head</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">is_body</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">is_left_hand</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">is_right_hand</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">is_left_leg</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">is_right_leg</span><span class="p">;</span>
+
+<span class="nl">public:</span>
+    <span class="n">HangMan</span><span class="p">(){</span>
+        <span class="n">is_scaffold</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
+        <span class="n">is_head</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
+        <span class="n">is_body</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="n">is_left_hand</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="n">is_right_hand</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="n">is_left_leg</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="n">is_right_leg</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="n">create_scaffold</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">create_head</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">create_body</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">create_left_hand</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">create_right_hand</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">create_left_leg</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">create_right_leg</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">start</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="kt">void</span> <span class="n">HangMan</span><span class="o">::</span><span class="n">create_scaffold</span><span class="p">(){</span>
+    <span class="n">is_scaffold</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Create Scaffold"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="n">HangMan</span><span class="o">::</span><span class="n">create_head</span><span class="p">(){</span>
+    <span class="n">is_head</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Create Head"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="n">HangMan</span><span class="o">::</span><span class="n">create_body</span><span class="p">(){</span>
+    <span class="n">is_body</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Create Body"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="p">}</span>
+<span class="kt">void</span> <span class="n">HangMan</span><span class="o">::</span><span class="n">create_left_hand</span><span class="p">(){</span>
+    <span class="n">is_left_hand</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Create Left Hand"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="n">HangMan</span><span class="o">::</span><span class="n">create_right_hand</span><span class="p">(){</span>
+    <span class="n">is_right_hand</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Create Right Hand"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="n">HangMan</span><span class="o">::</span><span class="n">create_left_leg</span><span class="p">(){</span>
+    <span class="n">is_left_leg</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Create Left Leg"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="n">HangMan</span><span class="o">::</span><span class="n">create_right_leg</span><span class="p">(){</span>
+    <span class="n">is_right_leg</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Create Right Leg"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span> <span class="n">HangMan</span><span class="o">::</span><span class="n">start</span><span class="p">(){</span>
+    <span class="kt">int</span> <span class="n">choice_theme</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">animal_list</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"fox"</span><span class="p">,</span><span class="s">",dog"</span><span class="p">,</span> <span class="s">"cat"</span><span class="p">,</span><span class="s">"leopard"</span><span class="p">,</span><span class="s">"hyena"</span><span class="p">,</span><span class="s">"parrot"</span><span class="p">,</span><span class="s">"owl"</span>
+                                    <span class="p">,</span><span class="s">"lion"</span><span class="p">,</span><span class="s">"eagle"</span><span class="p">,</span><span class="s">"hen"</span><span class="p">,</span><span class="s">"cow"</span><span class="p">,</span><span class="s">"ox"</span><span class="p">,</span><span class="s">"chicken"</span><span class="p">,</span><span class="s">"crane"</span><span class="p">,</span><span class="s">"bird"</span>
+                                    <span class="p">,</span><span class="s">"tiger"</span><span class="p">,</span><span class="s">"swan"</span><span class="p">,</span><span class="s">"goose"</span><span class="p">,</span><span class="s">"giraffe"</span><span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">country_list</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"Guam"</span><span class="p">,</span> <span class="s">"Nigeria"</span><span class="p">,</span><span class="s">"Nepal"</span><span class="p">,</span><span class="s">"NewZealand"</span>
+                                    <span class="p">,</span> <span class="s">"Korea"</span><span class="p">,</span><span class="s">"Germany"</span><span class="p">,</span><span class="s">"Laos"</span>
+                                    <span class="p">,</span> <span class="s">"Russia"</span><span class="p">,</span> <span class="s">"Mexico"</span><span class="p">,</span><span class="s">"Mongolia"</span><span class="p">,</span><span class="s">"Vietnam"</span>
+                                    <span class="p">,</span> <span class="s">"Brazil"</span><span class="p">,</span> <span class="s">"Belgium"</span><span class="p">,</span> <span class="s">"SaudiArabia"</span><span class="p">,</span> <span class="s">"SriLanka"</span>
+                                    <span class="p">,</span> <span class="s">"Sweden"</span><span class="p">,</span> <span class="s">"Swiss"</span><span class="p">,</span><span class="s">"Spain"</span><span class="p">,</span><span class="s">"Argentina"</span>
+                                    <span class="p">,</span> <span class="s">"Iceland"</span><span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">current_word</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Choice Theme: 1. Animal 2. Country 3. etc."</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"choice: "</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">choice_theme</span><span class="p">;</span>
+	
+    <span class="n">srand</span><span class="p">((</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+	<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="mi">5</span><span class="p">;</span>
+	
+	<span class="k">switch</span> <span class="p">(</span><span class="n">choice_theme</span><span class="p">){</span>
+	<span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">current_word</span> <span class="o">=</span> <span class="n">animal_list</span><span class="p">[</span><span class="n">num</span><span class="p">];</span>
+        <span class="k">break</span><span class="p">;</span><span class="c1">// ?�덤</span>
+    <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">current_word</span> <span class="o">=</span> <span class="n">country_list</span><span class="p">[</span><span class="n">num</span><span class="p">];</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+	
+    <span class="kt">int</span> <span class="n">current_length</span> <span class="o">=</span> <span class="n">current_word</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span><span class="n">current_length</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">z</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">view</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">current_length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+       <span class="n">view</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s">" _ "</span><span class="p">);</span> 
+    <span class="p">}</span>
+
+    <span class="kt">char</span> <span class="n">alphabet</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">changePoint</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">create</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">view</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        
+        <span class="n">Sleep</span><span class="p">(</span><span class="mi">700</span><span class="p">);</span>
+        <span class="c1">//alphbet input</span>
+        <span class="c1">// char alphabet;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Put your gues with Capital letter: "</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">alphabet</span><span class="p">;</span>
+
+
+        <span class="c1">//std::cout&lt;&lt;current_word&lt;&lt;std::endl;</span>
+        <span class="c1">//.at -&gt; certain region char access.</span>
+        <span class="c1">// int changePoint = 0;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">current_length</span> <span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="kt">char</span> <span class="n">compare</span> <span class="o">=</span> <span class="n">current_word</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> 
+            <span class="k">if</span><span class="p">(</span><span class="n">compare</span> <span class="o">==</span> <span class="n">alphabet</span><span class="p">){</span>
+                    <span class="n">changePoint</span> <span class="o">++</span><span class="p">;</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">stralpha</span><span class="p">;</span>
+                    <span class="n">stralpha</span> <span class="o">=</span> <span class="n">alphabet</span><span class="p">;</span>
+                    <span class="n">view</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="n">z</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+                    <span class="n">view</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="n">z</span><span class="p">,</span><span class="n">stralpha</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="c1">// int create = 0;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">changePoint</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="n">create</span> <span class="o">++</span><span class="p">;</span>
+            <span class="k">switch</span> <span class="p">(</span><span class="n">create</span><span class="p">){</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">create_scaffold</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">create_head</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">create_body</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="n">create_left_hand</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="n">create_right_hand</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">6</span><span class="p">:</span>
+                <span class="n">create_left_leg</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">7</span><span class="p">:</span>
+                <span class="n">create_right_leg</span><span class="p">();</span>
+                <span class="n">Sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"your word: "</span><span class="o">&lt;&lt;</span><span class="n">current_word</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"game end"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="n">Sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span> 
+        <span class="p">}</span>
+        <span class="n">changePoint</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">trans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">current_length</span> <span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="kt">char</span> <span class="n">compare</span> <span class="o">=</span> <span class="n">view</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="n">z</span><span class="p">);</span> 
+            <span class="k">if</span><span class="p">(</span><span class="n">compare</span> <span class="o">==</span> <span class="sc">'_'</span><span class="p">){</span>
+                    <span class="n">trans</span><span class="o">++</span><span class="p">;</span>
+                    <span class="k">break</span><span class="p">;</span>
+
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">trans</span> <span class="o">==</span>  <span class="mi">0</span><span class="p">){</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">view</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+            <span class="n">Sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"you win"</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>   
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">HangMan</span> <span class="n">hm</span> <span class="o">=</span> <span class="n">HangMan</span><span class="p">();</span>
+    <span class="n">hm</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+    <span class="n">Sleep</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+    <span class="c1">//.insert -&gt; string insert in located region</span>
+    <span class="c1">//.size, . length -&gt; size of string</span>
+    <span class="c1">//.at -&gt; certain region char access.</span>
+    <span class="c1">//.c_str -&gt; string change to char*</span>
+
+
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>해야 할 것</p>
+  </li>
+  <li>
+    <p>콘솔말고 GUI형식으로 만들어보자.</p>
+  </li>
+</ul>
+
+<p>제작일 : 2020-11-7</p>
+
+<p>&lt;참고 : 열혈 C++ 프로그래밍&gt;</p>
 
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -303,7 +524,8 @@ $.each(headers, function(i, header){
 })
 </script>
 
-
+<script>
+$('h1').first().append('<div><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#C++ ">C++</a></span><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#객체지향 ">객체지향</a></span><span style="font-size:12px" class="badge badge-primary"><a style="cursor:pointer; color:white" href="https://leetmdgus.github.io/tags#프로그래밍언어 ">프로그래밍언어</a></span></div>')</script>
 
 
             
