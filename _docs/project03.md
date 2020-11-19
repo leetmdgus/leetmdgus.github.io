@@ -65,7 +65,6 @@ public:
     Train();
     Train(int adult);
     Train(int adult, int child);
-    
 
     void ticketing();
     void show_ticket() const;
