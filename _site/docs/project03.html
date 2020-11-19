@@ -271,9 +271,188 @@ if (!doNotTrack) {
       <li>실시간 운행 정보</li>
     </ul>
   </li>
+  <li>
+    <p>구조</p>
+
+    <ul>
+      <li>발권
+        <ul>
+          <li>출발 지점, 도착 지점 선택</li>
+          <li>날짜 선택</li>
+          <li>인원 선택(어른 ㅁ명, 아이 ㅁ명)</li>
+          <li>열차정보 확인</li>
+          <li>객실 선택</li>
+        </ul>
+      </li>
+      <li>승객
+        <ul>
+          <li>표보기</li>
+          <li>환불하기</li>
+          <li>표사기</li>
+        </ul>
+      </li>
+      <li>열차 정보</li>
+    </ul>
+  </li>
+  <li>
+    <p>코드 구현</p>
+
+    <ol>
+      <li>발권하기 2. 발권한 표 확인 3. 환불하기 4. 열차 정보 확인</li>
+    </ol>
+  </li>
 </ul>
 
-<p>제작일 : 2020-11-13</p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Train</span><span class="p">{</span>
+<span class="nl">private:</span>
+    <span class="kt">int</span> <span class="n">adult_num</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">child_num</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">price</span><span class="p">;</span>
+    <span class="n">string</span> <span class="n">train_name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">departure_hour</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">departure_minute</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">arrival_hour</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">arrival_minute</span><span class="p">;</span>
+    <span class="n">string</span> <span class="n">arrival_spot</span><span class="p">;</span>
+    <span class="n">string</span> <span class="n">departure_spot</span><span class="p">;</span>
+
+<span class="nl">public:</span>
+    <span class="n">Train</span><span class="p">();</span>
+    <span class="n">Train</span><span class="p">(</span><span class="kt">int</span> <span class="n">adult</span><span class="p">);</span>
+    <span class="n">Train</span><span class="p">(</span><span class="kt">int</span> <span class="n">adult</span><span class="p">,</span> <span class="kt">int</span> <span class="n">child</span><span class="p">);</span>
+
+    <span class="kt">void</span> <span class="n">ticketing</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="n">show_ticket</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="n">train_info</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>      
+    <span class="kt">void</span> <span class="n">refund</span><span class="p">();</span>  
+<span class="p">};</span>
+
+<span class="n">Train</span><span class="o">::</span><span class="n">Train</span><span class="p">()</span><span class="o">:</span> <span class="n">adult_num</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">child_num</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">train_name</span><span class="p">(</span><span class="s">"NULL"</span><span class="p">){}</span>
+<span class="n">Train</span><span class="o">::</span><span class="n">Train</span><span class="p">(</span><span class="kt">int</span> <span class="n">adult</span><span class="p">)</span><span class="o">:</span> <span class="n">adult_num</span><span class="p">(</span><span class="n">adult</span><span class="p">),</span> <span class="n">child_num</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="n">train_name</span><span class="p">(</span><span class="s">"NULL"</span><span class="p">){}</span>
+<span class="n">Train</span><span class="o">::</span><span class="n">Train</span><span class="p">(</span><span class="kt">int</span> <span class="n">adult</span><span class="p">,</span> <span class="kt">int</span> <span class="n">child</span><span class="p">)</span><span class="o">:</span> <span class="n">adult_num</span><span class="p">(</span><span class="n">adult</span><span class="p">),</span><span class="n">child_num</span><span class="p">(</span><span class="n">child</span><span class="p">),</span><span class="n">train_name</span><span class="p">(</span><span class="s">"NULL"</span><span class="p">){}</span>
+
+<span class="kt">void</span> <span class="n">Train</span><span class="o">::</span><span class="n">ticketing</span><span class="p">(){</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"departure spot (Seoul / Suwon)"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">departure_spot</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"arrival spot (Busan / Busan)"</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span> <span class="n">arrival_spot</span><span class="p">;</span>  
+    
+    <span class="kt">int</span> <span class="n">time_choice</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">departure_spot</span> <span class="o">==</span> <span class="s">"Seoul"</span><span class="p">){</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"1. ["</span> <span class="o">&lt;&lt;</span><span class="n">departure_spot</span><span class="o">&lt;&lt;</span><span class="s">" -&gt; "</span><span class="o">&lt;&lt;</span><span class="n">arrival_spot</span><span class="o">&lt;&lt;</span><span class="s">"]"</span><span class="o">&lt;&lt;</span><span class="s">"09:10 ~ 11:10 [KTX]"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"2. ["</span> <span class="o">&lt;&lt;</span><span class="n">departure_spot</span><span class="o">&lt;&lt;</span><span class="s">" -&gt; "</span><span class="o">&lt;&lt;</span><span class="n">arrival_spot</span><span class="o">&lt;&lt;</span><span class="s">"]"</span><span class="o">&lt;&lt;</span><span class="s">"13:30 ~ 15:30 [KTX]"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"3. ["</span> <span class="o">&lt;&lt;</span><span class="n">departure_spot</span><span class="o">&lt;&lt;</span><span class="s">" -&gt; "</span><span class="o">&lt;&lt;</span><span class="n">arrival_spot</span><span class="o">&lt;&lt;</span><span class="s">"]"</span><span class="o">&lt;&lt;</span><span class="s">"16:00 ~ 18:00 [KTX]"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"4. ["</span><span class="o">&lt;&lt;</span><span class="n">departure_spot</span><span class="o">&lt;&lt;</span><span class="s">" -&gt; "</span><span class="o">&lt;&lt;</span><span class="n">arrival_spot</span><span class="o">&lt;&lt;</span><span class="s">"]"</span><span class="o">&lt;&lt;</span><span class="s">"19:10 ~ 21:10 [KTX]"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Please choose you want number"</span><span class="p">;</span>
+        <span class="n">cin</span><span class="o">&gt;&gt;</span> <span class="n">time_choice</span><span class="p">;</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">time_choice</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">departure_hour</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+            <span class="n">departure_minute</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+            <span class="n">train_name</span> <span class="o">=</span> <span class="s">"KTX"</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">departure_hour</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+            <span class="n">departure_minute</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+            <span class="n">train_name</span> <span class="o">=</span> <span class="s">"KTX"</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">departure_hour</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+            <span class="n">departure_minute</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">train_name</span> <span class="o">=</span> <span class="s">"KTX"</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="n">departure_hour</span> <span class="o">=</span> <span class="mi">19</span><span class="p">;</span>
+            <span class="n">departure_minute</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+            <span class="n">train_name</span> <span class="o">=</span> <span class="s">"KTX"</span><span class="p">;</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="nl">default:</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">departure_spot</span> <span class="o">==</span> <span class="s">"Suwon"</span><span class="p">){</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"1. ["</span><span class="o">&lt;&lt;</span><span class="n">departure_spot</span><span class="o">&lt;&lt;</span><span class="s">" -&gt; "</span><span class="o">&lt;&lt;</span><span class="n">arrival_spot</span><span class="o">&lt;&lt;</span><span class="s">"]"</span><span class="o">&lt;&lt;</span><span class="s">"17:00 ~ 19:00 [KTX]"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"2. ["</span><span class="o">&lt;&lt;</span><span class="n">departure_spot</span><span class="o">&lt;&lt;</span><span class="s">" -&gt; "</span><span class="o">&lt;&lt;</span><span class="n">arrival_spot</span><span class="o">&lt;&lt;</span><span class="s">"]"</span><span class="o">&lt;&lt;</span><span class="s">"20:00 ~ 00:00 [KTX]"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Please choose you want time: "</span><span class="p">;</span>
+        <span class="n">cin</span><span class="o">&gt;&gt;</span> <span class="n">time_choice</span><span class="p">;</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">time_choice</span><span class="p">)</span>
+            <span class="p">{</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">departure_hour</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+                <span class="n">departure_minute</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="n">train_name</span> <span class="o">=</span> <span class="s">"KTX"</span><span class="p">;</span>  
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">departure_hour</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+                <span class="n">departure_minute</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="n">train_name</span> <span class="o">=</span> <span class="s">"KTX"</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="nl">default:</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">departure_hour</span> <span class="o">=</span> <span class="n">departure_hour</span><span class="p">;</span>
+    <span class="n">departure_minute</span> <span class="o">=</span> <span class="n">departure_minute</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">departure_hour</span> <span class="o">&gt;=</span> <span class="mi">22</span><span class="p">){</span>
+        <span class="n">arrival_hour</span> <span class="o">=</span> <span class="n">departure_hour</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">24</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="n">arrival_hour</span> <span class="o">=</span> <span class="n">departure_hour</span> <span class="o">+</span><span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">arrival_minute</span> <span class="o">=</span> <span class="n">departure_minute</span><span class="p">;</span>
+
+    <span class="n">price</span> <span class="o">=</span> <span class="n">adult_num</span> <span class="o">*</span> <span class="mi">300000</span> <span class="o">+</span> <span class="n">child_num</span> <span class="o">*</span> <span class="mi">100000</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Train</span><span class="o">::</span><span class="n">show_ticket</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">train_name</span> <span class="o">==</span> <span class="s">"NULL"</span><span class="p">){</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Please buy your ticket"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"================================"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"your ticket infomation"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"--------------------------------"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"departure spot: "</span> <span class="o">&lt;&lt;</span><span class="n">departure_spot</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"arrival spot: "</span><span class="o">&lt;&lt;</span><span class="n">arrival_spot</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"adult num: "</span><span class="o">&lt;&lt;</span><span class="n">adult_num</span><span class="o">&lt;&lt;</span><span class="s">" child num: "</span><span class="o">&lt;&lt;</span><span class="n">child_num</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"your train: "</span><span class="o">&lt;&lt;</span><span class="n">train_name</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"departure time "</span><span class="o">&lt;&lt;</span><span class="n">departure_hour</span><span class="o">&lt;&lt;</span><span class="s">":"</span><span class="o">&lt;&lt;</span><span class="n">departure_minute</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"arrival time "</span><span class="o">&lt;&lt;</span><span class="n">arrival_hour</span><span class="o">&lt;&lt;</span><span class="s">":"</span><span class="o">&lt;&lt;</span><span class="n">arrival_minute</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"price: "</span><span class="o">&lt;&lt;</span><span class="n">price</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"================================"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Train</span><span class="o">::</span><span class="n">train_info</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"1. [Seoul -&gt; Busan] 09:10 ~ 11:10 [KTX]"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"2. [Seoul -&gt; Busan] 13:30 ~ 15:30 [KTX]"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"3. [Seoul -&gt; Busan] 16:00 ~ 18:00 [KTX]"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"4. [Seoul -&gt; Busan] 19:10 ~ 21:10 [KTX]"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>    
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"5. [Suwon -&gt; Busan] 17:00 ~ 19:00 [KTX]"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"6. [Suwon -&gt; Busan] 20:00 ~ 00:00 [KTX]"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Train</span><span class="o">::</span><span class="n">refund</span><span class="p">(){</span>
+
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">Train</span> <span class="n">user1</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+    <span class="n">user1</span><span class="p">.</span><span class="n">ticketing</span><span class="p">();</span>
+    <span class="n">user1</span><span class="p">.</span><span class="n">show_ticket</span><span class="p">();</span>
+    <span class="n">user1</span><span class="p">.</span><span class="n">train_info</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>최종 수정일 : 2020-11-19</p>
 
 
 <script
